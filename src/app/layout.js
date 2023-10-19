@@ -2,7 +2,6 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 
 import ThemeProvider from "./theme-provider";
-import ThemeSwitcher from "../components/ThemeSwitcher";
 import Sidebar from "../components/Sidebar";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -20,11 +19,8 @@ export default function RootLayout({ children }) {
       </head>
 
       <body className={"${inter.className} bg-slate-50 dark:bg-[#0d1117]"}>
-        <div>
-          <Sidebar />
-        </div>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <ThemeSwitcher />
+          <Sidebar />
           <main>{children}</main>
         </ThemeProvider>
       </body>

@@ -21,10 +21,11 @@ import {
   UserCircleIcon,
   Cog6ToothIcon,
   InboxIcon,
-  PowerIcon,
 } from "@heroicons/react/24/solid";
 
 import { ChevronRightIcon, ChevronDownIcon } from "@heroicons/react/24/outline";
+
+import ThemeSwitcher from "./ThemeSwitcher";
 
 export default function Sidebar() {
   const [open, setOpen] = useState(0);
@@ -34,7 +35,7 @@ export default function Sidebar() {
   };
 
   return (
-    <Card className="h-[calc(100vh-2rem)] w-full max-w-[20rem] p-4 shadow-xl shadow-blue-gray-900/5">
+    <Card className="bg-white dark:bg-black h-[calc(100vh-2rem)] w-full max-w-[20rem] p-4 shadow-xl shadow-blue-gray-900/5">
       <div className="mb-2 flex items-center gap-4 p-4">
         <img src="/img/logo.png" alt="brand" className="h-8 w-8" />
         <Typography variant="h4" color="pink" textGradient>
@@ -72,7 +73,7 @@ export default function Sidebar() {
                 <ListItemPrefix>
                   <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
                 </ListItemPrefix>
-                Analytics
+                <a href="/checkout">Check Out</a>
               </ListItem>
               <ListItem>
                 <ListItemPrefix>
@@ -158,12 +159,7 @@ export default function Sidebar() {
           </ListItemPrefix>
           Settings
         </ListItem>
-        <ListItem>
-          <ListItemPrefix>
-            <PowerIcon className="h-5 w-5" />
-          </ListItemPrefix>
-          Log Out
-        </ListItem>
+        <ThemeSwitcher />
       </List>
     </Card>
   );
