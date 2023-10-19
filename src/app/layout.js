@@ -13,6 +13,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+        <link rel="icon" href="img/favicon.ico" sizes="any" />
+      </head>
       <body className={"${inter.className} bg-slate-50 dark:bg-[#0d1117]"}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <ThemeSwitcher />
