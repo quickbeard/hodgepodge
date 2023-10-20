@@ -3,7 +3,7 @@ import "./globals.css";
 
 import { Providers } from "./providers";
 
-import Sidebar from "../components/Sidebar";
+import { SidebarWithHeader } from "@/components/navigation/Navigation";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,7 +21,7 @@ export default function RootLayout({ children }) {
 
       <body>
         <Providers>
-          <Sidebar />
+          <SidebarWithHeader />
           {children}
         </Providers>
       </body>
