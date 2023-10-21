@@ -20,10 +20,10 @@ import {
 } from "@chakra-ui/icons";
 import { useUser } from "@auth0/nextjs-auth0/client";
 
-import SearchBar from "../SearchBar";
-import ThemeSwitcher from "../ThemeSwitcher";
+import SearchBar from "./SearchBar";
+import ThemeSwitcher from "../buttons/ThemeSwitcher";
 import SignInButton from "../buttons/SignInButton";
-import UserProfile from "../UserProfile";
+import UserProfile from "./UserProfile";
 
 const NAV_ITEMS = [
   {

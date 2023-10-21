@@ -13,6 +13,7 @@ export default function SignInButton() {
         fontWeight={600}
         color={"white"}
         bg={"pink.400"}
+        size={"sm"}
         href={"/api/auth/login"}
         _hover={{
           bg: "pink.300",
