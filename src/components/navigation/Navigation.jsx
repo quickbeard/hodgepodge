@@ -36,7 +36,8 @@ export const SidebarWithHeader = () => {
       <Navbar />
 
       <Box ml={{ base: 0, md: 60 }} p="4">
-        Hello
+        <a href="/api/auth/login">Login</a>
+        <a href="/api/auth/logout">Logout</a>
       </Box>
     </Box>
   );
