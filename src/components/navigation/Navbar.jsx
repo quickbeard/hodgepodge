@@ -3,7 +3,6 @@ import {
   Flex,
   Text,
   IconButton,
-  Button,
   Stack,
   Collapse,
   Icon,
@@ -13,17 +12,17 @@ import {
   useColorModeValue,
   useDisclosure,
 } from "@chakra-ui/react";
-
 import {
   HamburgerIcon,
   CloseIcon,
   ChevronDownIcon,
   ChevronRightIcon,
 } from "@chakra-ui/icons";
+import { useUser } from "@auth0/nextjs-auth0/client";
 
 import ThemeSwitcher from "../ThemeSwitcher";
 import SignInButton from "../buttons/SignInButton";
-import SignUpButton from "../buttons/SignUpButton";
+import UserProfile from "../UserProfile";
 
 const NAV_ITEMS = [
   {
@@ -68,6 +67,7 @@ const NAV_ITEMS = [
 
 export default function Navbar() {
   const { isOpen, onToggle } = useDisclosure();
+  const { user } = useUser();
 
   return (
     <Box ml={{ base: 0, md: 60 }}>
@@ -105,13 +105,13 @@ export default function Navbar() {
 
         <Stack
           flex={{ base: 1, md: 0 }}
+          align={"center"}
           justify={"flex-end"}
           direction={"row"}
-          spacing={6}
+          spacing={4}
         >
           <ThemeSwitcher />
-          <SignInButton />
-          <SignUpButton />
+          {!user} ? <SignInButton /> : <UserProfile />
         </Stack>
       </Flex>
 

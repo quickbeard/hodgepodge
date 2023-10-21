@@ -1,4 +1,3 @@
-"use client";
 import { Button, useColorMode } from "@chakra-ui/react";
 import { MoonIcon, SunIcon } from "@chakra-ui/icons";
 
