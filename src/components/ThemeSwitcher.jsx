@@ -4,10 +4,8 @@ import { MoonIcon, SunIcon } from "@chakra-ui/icons";
 export default function ThemeSwitcher() {
   const { colorMode, toggleColorMode } = useColorMode();
   return (
-    <header>
-      <Button onClick={toggleColorMode}>
-        {colorMode === "light" ? <MoonIcon /> : <SunIcon />}
-      </Button>
-    </header>
+    <Button onClick={toggleColorMode}>
+      {colorMode === "light" ? <MoonIcon /> : <SunIcon />}
+    </Button>
   );
 }

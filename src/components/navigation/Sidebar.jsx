@@ -64,7 +64,7 @@ const NavItem = ({ icon, children, ...rest }) => {
 export default function SidebarContent({ onClose, ...rest }) {
   return (
     <Box
-      bg={useColorModeValue("white", "gray.900")}
+      bg={useColorModeValue("gray.50", "gray.800")}
       borderRight="1px"
       borderRightColor={useColorModeValue("gray.200", "gray.700")}
       w={{ base: "full", md: 60 }}

@@ -25,7 +25,7 @@ export default function UserProfile() {
             cursor={"pointer"}
             minW={0}
           >
-            <Avatar name={user.name} src={user.picture} size={"md"} />
+            <Avatar name={user.name} src={user.picture} size={"sm"} />
           </MenuButton>
           <MenuList>
             <MenuItem>Upload Avatar</MenuItem>
