@@ -1,6 +1,7 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 
+import { UserProvider } from "@auth0/nextjs-auth0/client";
 import { Providers } from "./providers";
 
 import { SidebarWithHeader } from "@/components/navigation/Navigation";
@@ -19,12 +20,14 @@ export default function RootLayout({ children }) {
         <link rel="icon" href="img/favicon.ico" sizes="any" />
       </head>
 
-      <body>
-        <Providers>
-          <SidebarWithHeader />
-          {children}
-        </Providers>
-      </body>
+      <UserProvider>
+        <body>
+          <Providers>
+            <SidebarWithHeader />
+            {children}
+          </Providers>
+        </body>
+      </UserProvider>
     </html>
   );
 }
