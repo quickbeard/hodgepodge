@@ -21,9 +21,9 @@ export default function SearchBar() {
           h="1.75rem"
           w="4rem"
           size="sm"
-          bg={useColorModeValue("gray.300", "gray.700")}
+          bg={useColorModeValue("gray.200", "gray.700")}
           _hover={{
-            bg: useColorModeValue("gray.200", "gray.600"),
+            bg: useColorModeValue("gray.100", "gray.600"),
             cursor: "pointer",
           }}
         >
