@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "prettier": "prettier . --check",
+    "prettier:fix": "prettier . --write"
   },
   "dependencies": {
     "@auth0/nextjs-auth0": "^3.2.0",
@@ -25,9 +27,10 @@
   },
   "devDependencies": {
     "autoprefixer": "^10",
-    "eslint": "^8",
+    "eslint": "^8.51.0",
     "eslint-config-next": "13.5.6",
     "postcss": "^8",
+    "prettier": "^3.0.3",
     "tailwindcss": "^3"
   }
 }
