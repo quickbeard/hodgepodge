@@ -23,7 +23,7 @@ import { useUser } from "@auth0/nextjs-auth0/client";
 import SearchBar from "./SearchBar";
 import ThemeSwitcher from "../buttons/ThemeSwitcher";
 import SignInButton from "../buttons/SignInButton";
-import UserProfile from "./UserProfile";
+import UserProfile from "../buttons/UserProfile";
 
 const NAV_ITEMS = [
   {

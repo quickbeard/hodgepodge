@@ -1,8 +1,8 @@
 import "./globals.css";
 import { UserProvider } from "@auth0/nextjs-auth0/client";
-import { Providers } from "./providers";
 
-import SidebarWithHeader from "@/components/navigation/Navigation";
+import { Providers } from "./providers";
+import SidebarWithHeader from "../components/navigation/SidebarWithHeader";
 
 export const metadata = {
   title: "Quickbeard",
@@ -19,8 +19,7 @@ export default function RootLayout({ children }) {
       <UserProvider>
         <body>
           <Providers>
-            <SidebarWithHeader />
-            {children}
+            <SidebarWithHeader>{children}</SidebarWithHeader>
           </Providers>
         </body>
       </UserProvider>
