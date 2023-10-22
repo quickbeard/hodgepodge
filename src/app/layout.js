@@ -1,9 +1,8 @@
 import "./globals.css";
-
 import { UserProvider } from "@auth0/nextjs-auth0/client";
 import { Providers } from "./providers";
 
-import { SidebarWithHeader } from "@/components/navigation/Navigation";
+import SidebarWithHeader from "@/components/navigation/Navigation";
 
 export const metadata = {
   title: "Quickbeard",

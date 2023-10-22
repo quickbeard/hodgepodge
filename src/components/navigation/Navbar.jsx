@@ -104,10 +104,6 @@ export default function Navbar() {
           </Flex>
         </Flex>
 
-        <Flex flex={{ base: 1 }} justify={{ base: "right", md: "start" }}>
-          <SearchBar />
-        </Flex>
-
         <Stack
           flex={{ base: 1, md: 0 }}
           align={"center"}
@@ -115,6 +111,7 @@ export default function Navbar() {
           direction={"row"}
           spacing={4}
         >
+          <SearchBar />
           <ThemeSwitcher />
           {!user} ? <SignInButton /> : <UserProfile />
         </Stack>

@@ -2,11 +2,14 @@ import React from "react";
 import {
   Box,
   CloseButton,
+  Drawer,
+  DrawerContent,
   Flex,
   Icon,
   Image,
-  useColorModeValue,
   Text,
+  useColorModeValue,
+  useDisclosure,
 } from "@chakra-ui/react";
 import {
   FiHome,
@@ -23,6 +26,57 @@ const LinkItems = [
   { name: "Favourites", icon: FiStar },
   { name: "Settings", icon: FiSettings },
 ];
+
+export default function Sidebar() {
+  const { isOpen, onClose } = useDisclosure();
+  return (
+    <>
+      <SidebarContent
+        onClose={() => onClose}
+        display={{ base: "none", md: "block" }}
+      />
+      <Drawer
+        isOpen={isOpen}
+        placement="left"
+        onClose={onClose}
+        returnFocusOnClose={false}
+        onOverlayClick={onClose}
+        size="full"
+      >
+        <DrawerContent>
+          <SidebarContent onClose={onClose} />
+        </DrawerContent>
+      </Drawer>
+    </>
+  );
+}
+
+const SidebarContent = ({ onClose, ...rest }) => {
+  return (
+    <Box
+      bg={useColorModeValue("gray.50", "gray.800")}
+      borderRight="1px"
+      borderRightColor={useColorModeValue("gray.200", "gray.700")}
+      w={{ base: "full", md: 60 }}
+      pos="fixed"
+      h="full"
+      {...rest}
+    >
+      <Flex h="20" alignItems="center" mx="5" justifyContent="space-between">
+        <Image src="img/logo.png" alt="Logo" boxSize="40px" />
+        <Text fontSize="2xl" fontFamily="monospace" fontWeight="bold">
+          Quickbeard
+        </Text>
+        <CloseButton display={{ base: "flex", md: "none" }} onClick={onClose} />
+      </Flex>
+      {LinkItems.map((link) => (
+        <NavItem key={link.name} icon={link.icon}>
+          {link.name}
+        </NavItem>
+      ))}
+    </Box>
+  );
+};
 
 const NavItem = ({ icon, children, ...rest }) => {
   return (
@@ -60,30 +114,3 @@ const NavItem = ({ icon, children, ...rest }) => {
     </Box>
   );
 };
-
-export default function SidebarContent({ onClose, ...rest }) {
-  return (
-    <Box
-      bg={useColorModeValue("gray.50", "gray.800")}
-      borderRight="1px"
-      borderRightColor={useColorModeValue("gray.200", "gray.700")}
-      w={{ base: "full", md: 60 }}
-      pos="fixed"
-      h="full"
-      {...rest}
-    >
-      <Flex h="20" alignItems="center" mx="5" justifyContent="space-between">
-        <Image src="img/logo.png" alt="Logo" boxSize="40px" />
-        <Text fontSize="2xl" fontFamily="monospace" fontWeight="bold">
-          Quickbeard
-        </Text>
-        <CloseButton display={{ base: "flex", md: "none" }} onClick={onClose} />
-      </Flex>
-      {LinkItems.map((link) => (
-        <NavItem key={link.name} icon={link.icon}>
-          {link.name}
-        </NavItem>
-      ))}
-    </Box>
-  );
-}
