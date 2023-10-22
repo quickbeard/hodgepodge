@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "prettier": "prettier . --check",
-    "prettier:fix": "prettier . --write"
+    "prettier:fix": "prettier . --write",
+    "format": "next lint --fix && pnpm prettier:fix"
   },
   "dependencies": {
     "@auth0/nextjs-auth0": "^3.2.0",
