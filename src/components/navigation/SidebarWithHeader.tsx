@@ -1,4 +1,5 @@
 "use client";
+import React from "react";
 import { Box, useColorModeValue } from "@chakra-ui/react";
 
 import Sidebar from "./Sidebar";

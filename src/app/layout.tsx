@@ -2,9 +2,10 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 
+import React from "react";
 import { UserProvider } from "@auth0/nextjs-auth0/client";
-import { Providers } from "./providers";
 
+import { Providers } from "./providers";
 import SidebarWithHeader from "@/components/navigation/SidebarWithHeader";
 
 const inter = Inter({ subsets: ["latin"] });
