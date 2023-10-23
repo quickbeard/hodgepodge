@@ -13,6 +13,12 @@ import { useUser } from "@auth0/nextjs-auth0/client";
 
 export default function UserProfile() {
   const { user } = useUser();
+  let name: string | undefined = "";
+  let src: string | undefined = "";
+  if (user) {
+    name = user.name === null ? undefined : user.name;
+    src = user.picture === null ? undefined : user.picture;
+  }
 
   return (
     user && (
@@ -25,7 +31,7 @@ export default function UserProfile() {
             cursor={"pointer"}
             minW={0}
           >
-            <Avatar name={user.name} src={user.picture} size={"sm"} />
+            <Avatar name={name} src={src} size={"sm"} />
           </MenuButton>
           <MenuList>
             <MenuItem>Upload Avatar</MenuItem>

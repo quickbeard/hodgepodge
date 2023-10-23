@@ -25,7 +25,14 @@ import ThemeSwitcher from "../buttons/ThemeSwitcher";
 import SignInButton from "../buttons/SignInButton";
 import UserProfile from "../buttons/UserProfile";
 
-const NAV_ITEMS = [
+interface NavItem {
+  label: string;
+  subLabel?: string;
+  children?: Array<NavItem>;
+  href?: string;
+}
+
+const NAV_ITEMS: Array<NavItem> = [
   {
     label: "Inspiration",
     children: [
@@ -174,7 +181,7 @@ const DesktopNav = () => {
   );
 };
 
-const DesktopSubNav = ({ label, href, subLabel }) => {
+const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
   return (
     <Box
       as="a"
@@ -226,7 +233,7 @@ const MobileNav = () => {
   );
 };
 
-const MobileNavItem = ({ label, children, href }) => {
+const MobileNavItem = ({ label, children, href }: NavItem) => {
   const { isOpen, onToggle } = useDisclosure();
 
   return (
