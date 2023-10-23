@@ -1,4 +1,5 @@
 import React from "react";
+import { IconType } from "react-icons";
 import {
   Box,
   CloseButton,
@@ -10,6 +11,8 @@ import {
   Text,
   useColorModeValue,
   useDisclosure,
+  BoxProps,
+  FlexProps,
 } from "@chakra-ui/react";
 import {
   FiHome,
@@ -51,7 +54,11 @@ export default function Sidebar() {
   );
 }
 
-const SidebarContent = ({ onClose, ...rest }) => {
+interface SidebarProps extends BoxProps {
+  onClose: () => void;
+}
+
+const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
   return (
     <Box
       bg={useColorModeValue("gray.50", "gray.800")}
@@ -78,7 +85,13 @@ const SidebarContent = ({ onClose, ...rest }) => {
   );
 };
 
-const NavItem = ({ icon, children, ...rest }) => {
+type ReactText = string | number;
+interface NavItemProps extends FlexProps {
+  icon: IconType;
+  children: ReactText;
+}
+
+const NavItem = ({ icon, children, ...rest }: NavItemProps) => {
   return (
     <Box
       as="a"
