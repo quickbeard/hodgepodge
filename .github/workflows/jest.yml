@@ -7,7 +7,7 @@ on:
       - main
 
 jobs:
-  lint-and-unit-test:
+  lint-and-test:
     name: Run lint and unit tests
     runs-on: ubuntu-latest
     steps:
