@@ -1,17 +1,29 @@
 "use client";
-import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
+import {
+  PayPalScriptProvider,
+  PayPalButtons,
+  ReactPayPalScriptOptions,
+} from "@paypal/react-paypal-js";
+import { Text } from "@chakra-ui/react";
 
-const payPalOptions = {
-  clientId:
-    "AUGJzcaSSyEX2SjL_IG1eObYJm-uJ9FhOt-Gz5xBBKXp-YS-23crCsikUm2GFF8_vsxmqqk0MKcHXdb1",
+import { env } from "../env/server.mjs";
+
+const payPalOptions: ReactPayPalScriptOptions = {
+  clientId: env.NEXT_PUBLIC_PAYPAL_CLIENT_ID
+    ? env.NEXT_PUBLIC_PAYPAL_CLIENT_ID
+    : "",
   currency: "USD",
   intent: "capture",
 };
 
 export const PayPalButton = () => {
-  return (
+  return payPalOptions.clientId !== "" ? (
     <PayPalScriptProvider options={payPalOptions}>
       <PayPalButtons style={{ layout: "vertical" }} />
     </PayPalScriptProvider>
+  ) : (
+    <Text as="b" fontSize="25px" color="tomato">
+      400: No PayPal client ID
+    </Text>
   );
 };

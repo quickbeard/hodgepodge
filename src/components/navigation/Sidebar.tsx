@@ -85,10 +85,9 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
   );
 };
 
-type ReactText = string | number;
 interface NavItemProps extends FlexProps {
   icon: IconType;
-  children: ReactText;
+  children: string | number;
 }
 
 const NavItem = ({ icon, children, ...rest }: NavItemProps) => {

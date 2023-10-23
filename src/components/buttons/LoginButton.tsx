@@ -1,7 +1,7 @@
 import { Button } from "@chakra-ui/react";
 import { useUser } from "@auth0/nextjs-auth0/client";
 
-export default function SignInButton() {
+export default function LoginButton() {
   const { user } = useUser();
 
   return (
@@ -19,7 +19,7 @@ export default function SignInButton() {
           bg: "pink.300",
         }}
       >
-        Sign In
+        Login
       </Button>
     )
   );

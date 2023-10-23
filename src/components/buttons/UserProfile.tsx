@@ -34,11 +34,11 @@ export default function UserProfile() {
             <Avatar name={name} src={src} size={"sm"} />
           </MenuButton>
           <MenuList>
-            <MenuItem>Upload Avatar</MenuItem>
-            <MenuItem>Settings</MenuItem>
+            <MenuItem>Your profile</MenuItem>
+            <MenuItem>Upload avatar</MenuItem>
             <MenuDivider />
             <MenuItem>
-              <Link href="/api/auth/logout">Sign Out</Link>
+              <Link href="/api/auth/logout">Log out</Link>
             </MenuItem>
           </MenuList>
         </Menu>

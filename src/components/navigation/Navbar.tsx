@@ -22,7 +22,7 @@ import { useUser } from "@auth0/nextjs-auth0/client";
 
 import SearchBar from "./SearchBar";
 import ThemeSwitcher from "../buttons/ThemeSwitcher";
-import SignInButton from "../buttons/SignInButton";
+import LoginButton from "../buttons/LoginButton";
 import UserProfile from "../buttons/UserProfile";
 
 interface NavItem {
@@ -120,7 +120,7 @@ export default function Navbar() {
         >
           <SearchBar />
           <ThemeSwitcher />
-          {!user} ? <SignInButton /> : <UserProfile />
+          {!user} ? <LoginButton /> : <UserProfile />
         </Stack>
       </Flex>
 
