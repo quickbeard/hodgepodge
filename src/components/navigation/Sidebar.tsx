@@ -8,6 +8,7 @@ import {
   Flex,
   Icon,
   Image,
+  Link,
   Text,
   useColorModeValue,
   useDisclosure,
@@ -70,8 +71,16 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
       {...rest}
     >
       <Flex h="20" alignItems="center" mx="5" justifyContent="space-between">
-        <Image src="img/logo.png" alt="Logo" boxSize="40px" />
-        <Text fontSize="2xl" fontFamily="monospace" fontWeight="bold">
+        <Link href="/">
+          <Image src="img/logo.png" alt="Logo" boxSize="40px" />
+        </Link>
+        <Text
+          as="a"
+          href="/"
+          fontSize="2xl"
+          fontFamily="monospace"
+          fontWeight="bold"
+        >
           Quickbeard
         </Text>
         <CloseButton display={{ base: "flex", md: "none" }} onClick={onClose} />
