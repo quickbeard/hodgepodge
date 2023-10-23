@@ -1,4 +1,4 @@
-name: Check
+name: Lint and Jest
 
 on:
   pull_request:
@@ -8,7 +8,7 @@ on:
 
 jobs:
   lint-and-unit-test:
-    name: Run lint and unit test
+    name: Run lint and unit tests
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
