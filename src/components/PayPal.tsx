@@ -1,12 +1,14 @@
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
 "use client";
 import {
   PayPalScriptProvider,
   PayPalButtons,
-  ReactPayPalScriptOptions,
+  type ReactPayPalScriptOptions,
 } from "@paypal/react-paypal-js";
 import { Text } from "@chakra-ui/react";
 
-import { env } from "../env/client.mjs";
+import { env } from "@/env.mjs";
 
 const payPalOptions: ReactPayPalScriptOptions = {
   clientId: env.NEXT_PUBLIC_PAYPAL_CLIENT_ID

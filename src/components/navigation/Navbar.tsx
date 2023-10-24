@@ -18,7 +18,7 @@ import {
   ChevronDownIcon,
   ChevronRightIcon,
 } from "@chakra-ui/icons";
-import { useUser } from "@auth0/nextjs-auth0/client";
+import { useSession } from "next-auth/react";
 
 import SearchBar from "./SearchBar";
 import ThemeSwitcher from "../buttons/ThemeSwitcher";
@@ -75,7 +75,7 @@ const NAV_ITEMS: Array<NavItem> = [
 
 export default function Navbar() {
   const { isOpen, onToggle } = useDisclosure();
-  const { user } = useUser();
+  const { status } = useSession();
 
   return (
     <Box ml={{ base: 0, md: 60 }}>
@@ -120,7 +120,7 @@ export default function Navbar() {
         >
           <SearchBar />
           <ThemeSwitcher />
-          {!user} ? <LoginButton /> : <UserProfile />
+          {status !== "authenticated"} ? <LoginButton /> : <UserProfile />
         </Stack>
       </Flex>
 
@@ -274,12 +274,11 @@ const MobileNavItem = ({ label, children, href }: NavItem) => {
           borderColor={useColorModeValue("gray.200", "gray.700")}
           align={"start"}
         >
-          {children &&
-            children.map((child) => (
-              <Box as="a" key={child.label} py={2} href={child.href}>
-                {child.label}
-              </Box>
-            ))}
+          {children?.map((child) => (
+            <Box as="a" key={child.label} py={2} href={child.href}>
+              {child.label}
+            </Box>
+          ))}
         </Stack>
       </Collapse>
     </Stack>

@@ -9,19 +9,19 @@ import {
   MenuItem,
   MenuDivider,
 } from "@chakra-ui/react";
-import { useUser } from "@auth0/nextjs-auth0/client";
+import { useSession } from "next-auth/react";
 
 export default function UserProfile() {
-  const { user } = useUser();
+  const { data: session, status } = useSession();
   let name: string | undefined = "";
-  let src: string | undefined = "";
-  if (user) {
-    name = user.name === null ? undefined : user.name;
-    src = user.picture === null ? undefined : user.picture;
+  let image: string | undefined = "";
+  if (status === "authenticated") {
+    name = session.user.name === null ? undefined : session.user.name;
+    image = session.user.image === null ? undefined : session.user.image;
   }
 
   return (
-    user && (
+    status === "authenticated" && (
       <Flex alignItems={"center"}>
         <Menu>
           <MenuButton
@@ -31,14 +31,14 @@ export default function UserProfile() {
             cursor={"pointer"}
             minW={0}
           >
-            <Avatar name={name} src={src} size={"sm"} />
+            <Avatar name={name} src={image} size={"sm"} />
           </MenuButton>
           <MenuList>
             <MenuItem>Your profile</MenuItem>
             <MenuItem>Upload avatar</MenuItem>
             <MenuDivider />
             <MenuItem>
-              <Link href="/api/auth/logout">Log out</Link>
+              <Link href="/api/auth/signout">Log out</Link>
             </MenuItem>
           </MenuList>
         </Menu>

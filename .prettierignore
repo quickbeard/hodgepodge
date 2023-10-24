@@ -1,8 +1,2 @@
-# YAML
-*.yml
-*.yaml
-
-# MD
 *.md
-
 CODEOWNERS
