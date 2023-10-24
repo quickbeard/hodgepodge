@@ -1,6 +1,6 @@
-import type { Metadata } from "next";
-import "./globals.css";
+import "@/styles/globals.css";
 
+import type { Metadata } from "next";
 import React from "react";
 import { UserProvider } from "@auth0/nextjs-auth0/client";
 
@@ -10,6 +10,7 @@ import SidebarWithHeader from "@/components/navigation/SidebarWithHeader";
 export const metadata: Metadata = {
   title: "Quickbeard",
   description: "For research purposes",
+  icons: [{ rel: "icon", url: "img/favicon.ico" }],
 };
 
 export default function RootLayout({
@@ -19,9 +20,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <head>
-        <link rel="icon" href="img/favicon.ico" sizes="any" />
-      </head>
       <UserProvider>
         <body>
           <Providers>

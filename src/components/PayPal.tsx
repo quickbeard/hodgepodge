@@ -6,7 +6,7 @@ import {
 } from "@paypal/react-paypal-js";
 import { Text } from "@chakra-ui/react";
 
-import { env } from "../env/server.mjs";
+import { env } from "../env/client.mjs";
 
 const payPalOptions: ReactPayPalScriptOptions = {
   clientId: env.NEXT_PUBLIC_PAYPAL_CLIENT_ID
