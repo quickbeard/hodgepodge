@@ -1,11 +1,11 @@
 import { Button } from "@chakra-ui/react";
-import { useUser } from "@auth0/nextjs-auth0/client";
+import { useSession } from "next-auth/react";
 
 export default function LoginButton() {
-  const { user } = useUser();
+  const { status } = useSession();
 
   return (
-    !user && (
+    status !== "authenticated" && (
       <Button
         as={"a"}
         display={{ base: "none", md: "inline-flex" }}
@@ -14,7 +14,7 @@ export default function LoginButton() {
         color={"white"}
         bg={"pink.400"}
         size={"sm"}
-        href={"/api/auth/login"}
+        href={"/api/auth/signin"}
         _hover={{
           bg: "pink.300",
         }}

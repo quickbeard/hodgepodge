@@ -1,5 +1,4 @@
-import React from "react";
-import { IconType } from "react-icons";
+import { type IconType } from "react-icons";
 import {
   Box,
   CloseButton,
@@ -12,8 +11,8 @@ import {
   Text,
   useColorModeValue,
   useDisclosure,
-  BoxProps,
-  FlexProps,
+  type BoxProps,
+  type FlexProps,
 } from "@chakra-ui/react";
 import {
   FiHome,
