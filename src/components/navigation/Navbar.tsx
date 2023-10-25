@@ -21,6 +21,7 @@ import {
 import { useSession } from "next-auth/react";
 
 import SearchBar from "./SearchBar";
+import SocialButton from "../buttons/SocialButton";
 import ThemeSwitcher from "../buttons/ThemeSwitcher";
 import LoginButton from "../buttons/LoginButton";
 import UserProfile from "../buttons/UserProfile";
@@ -119,6 +120,8 @@ export default function Navbar() {
           spacing={4}
         >
           <SearchBar />
+          <SocialButton name="github" href="https://github.com/minhn4" />
+          <SocialButton name="linkedin" href="/" />
           <ThemeSwitcher />
           {status !== "authenticated"} ? <LoginButton /> : <UserProfile />
         </Stack>

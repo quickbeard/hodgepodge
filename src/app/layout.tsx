@@ -4,7 +4,6 @@ import { Inter } from "next/font/google";
 import { headers } from "next/headers";
 
 import { TRPCReactProvider } from "@/trpc/react";
-
 import { Providers } from "./providers";
 import SidebarWithHeader from "@/components/navigation/SidebarWithHeader";
 
