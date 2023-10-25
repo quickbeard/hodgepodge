@@ -1,5 +1,7 @@
 import { type IconType } from "react-icons";
 import {
+  type BoxProps,
+  type FlexProps,
   Box,
   CloseButton,
   Drawer,
@@ -8,23 +10,12 @@ import {
   Icon,
   useColorModeValue,
   useDisclosure,
-  type BoxProps,
-  type FlexProps,
 } from "@chakra-ui/react";
-import {
-  FiHome,
-  FiCompass,
-  FiShoppingBag,
-  FiStar,
-  FiSettings,
-} from "react-icons/fi";
+import { FiHome, FiShoppingBag } from "react-icons/fi";
 
 const LinkItems = [
   { name: "Home", icon: FiHome, href: "/" },
   { name: "Check Out", icon: FiShoppingBag, href: "checkout/" },
-  { name: "Explore", icon: FiCompass, href: "#" },
-  { name: "Favourites", icon: FiStar, href: "#" },
-  { name: "Settings", icon: FiSettings, href: "#" },
 ];
 
 export default function Sidebar() {

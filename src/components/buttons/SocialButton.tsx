@@ -1,5 +1,5 @@
-import { Button, Link, Icon } from "@chakra-ui/react";
 import { type IconType } from "react-icons";
+import { Button, Link, Icon } from "@chakra-ui/react";
 import { BsLinkedin, BsGithub } from "react-icons/bs";
 
 const socialMap: Record<string, IconType> = {
