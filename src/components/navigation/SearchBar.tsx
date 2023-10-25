@@ -14,7 +14,7 @@ export default function SearchBar() {
       <InputLeftElement pointerEvents="none">
         <Search2Icon color="gray.500" />
       </InputLeftElement>
-      <Input type="text" placeholder="Search" />
+      <Input type="text" placeholder="Search..." />
       <InputRightElement width="5rem">
         <Button
           as={"a"}

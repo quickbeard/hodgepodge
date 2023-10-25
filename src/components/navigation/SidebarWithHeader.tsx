@@ -14,8 +14,8 @@ export default function SidebarWithHeader({
   return (
     <SessionProvider>
       <Box minH="100vh" bg={useColorModeValue("gray.100", "gray.900")}>
-        <Sidebar />
         <Navbar />
+        <Sidebar />
         {children}
       </Box>
     </SessionProvider>
