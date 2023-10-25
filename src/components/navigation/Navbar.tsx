@@ -1,3 +1,4 @@
+import { type IconType } from "react-icons";
 import {
   Box,
   Flex,
@@ -16,11 +17,10 @@ import {
 } from "@chakra-ui/react";
 import {
   HamburgerIcon,
-  CloseIcon,
   ChevronDownIcon,
   ChevronRightIcon,
 } from "@chakra-ui/icons";
-import { RiArrowDownSLine } from "react-icons/ri";
+import { MdKeyboardArrowDown } from "react-icons/md";
 import { useSession } from "next-auth/react";
 
 import SearchBar from "./SearchBar";
@@ -28,7 +28,6 @@ import SocialButton from "../buttons/SocialButton";
 import ThemeSwitcher from "../buttons/ThemeSwitcher";
 import LoginButton from "../buttons/LoginButton";
 import UserProfile from "../buttons/UserProfile";
-import { type IconType } from "react-icons";
 
 interface NavItem {
   label: string;
@@ -42,7 +41,7 @@ interface NavItem {
 const NAV_ITEMS: Array<NavItem> = [
   {
     label: "Utilities",
-    iconLeft: RiArrowDownSLine,
+    iconLeft: MdKeyboardArrowDown,
     children: [
       {
         label: "Hide Python source",
@@ -97,9 +96,7 @@ export default function Navbar() {
           </Stack>
           <IconButton
             onClick={onToggle}
-            icon={
-              isOpen ? <CloseIcon w={3} h={3} /> : <HamburgerIcon w={5} h={5} />
-            }
+            icon={<HamburgerIcon w={5} h={5} />}
             variant={"ghost"}
             aria-label={"Toggle Navigation"}
           />
