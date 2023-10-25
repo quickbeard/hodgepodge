@@ -6,6 +6,8 @@ import {
   Stack,
   Collapse,
   Icon,
+  Image,
+  Link,
   Popover,
   PopoverTrigger,
   PopoverContent,
@@ -18,6 +20,7 @@ import {
   ChevronDownIcon,
   ChevronRightIcon,
 } from "@chakra-ui/icons";
+import { RiArrowDownSLine } from "react-icons/ri";
 import { useSession } from "next-auth/react";
 
 import SearchBar from "./SearchBar";
@@ -25,9 +28,12 @@ import SocialButton from "../buttons/SocialButton";
 import ThemeSwitcher from "../buttons/ThemeSwitcher";
 import LoginButton from "../buttons/LoginButton";
 import UserProfile from "../buttons/UserProfile";
+import { type IconType } from "react-icons";
 
 interface NavItem {
   label: string;
+  iconRight?: IconType;
+  iconLeft?: IconType;
   subLabel?: string;
   children?: Array<NavItem>;
   href?: string;
@@ -35,42 +41,20 @@ interface NavItem {
 
 const NAV_ITEMS: Array<NavItem> = [
   {
-    label: "Inspiration",
+    label: "Utilities",
+    iconLeft: RiArrowDownSLine,
     children: [
       {
-        label: "Explore Design Work",
-        subLabel: "Trending Design to inspire you",
+        label: "Hide Python source",
+        subLabel: "Obfuscate and hide Python source code",
         href: "#",
       },
       {
-        label: "New & Noteworthy",
-        subLabel: "Up-and-coming Designers",
+        label: "Move secrets to Vault",
+        subLabel: "Move secrets from a file to Vault",
         href: "#",
       },
     ],
-  },
-  {
-    label: "Find Work",
-    children: [
-      {
-        label: "Job Board",
-        subLabel: "Find your dream design job",
-        href: "#",
-      },
-      {
-        label: "Freelance Projects",
-        subLabel: "An exclusive list for contract work",
-        href: "#",
-      },
-    ],
-  },
-  {
-    label: "Learn Design",
-    href: "#",
-  },
-  {
-    label: "Hire Designers",
-    href: "#",
   },
 ];
 
@@ -79,7 +63,12 @@ export default function Navbar() {
   const { status } = useSession();
 
   return (
-    <Box ml={{ base: 0, md: 60 }}>
+    <Box
+      ml={{ base: 0, md: 0 }}
+      borderBottom="1px"
+      borderBottomColor={useColorModeValue("gray.200", "gray.700")}
+      alignContent={"center"}
+    >
       <Flex
         bg={useColorModeValue("gray.50", "gray.800")}
         color={useColorModeValue("gray.600", "white")}
@@ -91,11 +80,21 @@ export default function Navbar() {
         borderColor={useColorModeValue("gray.200", "gray.900")}
         align={"center"}
       >
-        <Flex
-          flex={{ base: 1, md: "auto" }}
-          ml={{ base: -2 }}
-          display={{ base: "flex", md: "none" }}
-        >
+        <Stack direction={"row"} spacing={7}>
+          <Stack direction={"row"} spacing={2} align={"center"}>
+            <Link href="/">
+              <Image src="img/logo.png" alt="Logo" boxSize="35px" />
+            </Link>
+            <Text
+              as="a"
+              href="/"
+              fontSize="xl"
+              fontFamily="monospace"
+              fontWeight="bold"
+            >
+              Quickbeard
+            </Text>
+          </Stack>
           <IconButton
             onClick={onToggle}
             icon={
@@ -104,22 +103,29 @@ export default function Navbar() {
             variant={"ghost"}
             aria-label={"Toggle Navigation"}
           />
-        </Flex>
+        </Stack>
 
-        <Flex flex={{ base: 1 }} justify={{ base: "left", md: "start" }}>
-          <Flex display={{ base: "none", md: "flex" }} ml={1}>
+        <Stack
+          flex={{ base: 1 }}
+          justify={"flex-end"}
+          direction={"row"}
+          align={"center"}
+          spacing={6}
+        >
+          <SearchBar />
+          <Flex display={{ base: "none", md: "flex" }} ml={1} align={"center"}>
             <DesktopNav />
           </Flex>
-        </Flex>
+        </Stack>
 
         <Stack
           flex={{ base: 1, md: 0 }}
+          ml={0}
           align={"center"}
           justify={"flex-end"}
           direction={"row"}
-          spacing={4}
+          spacing={2}
         >
-          <SearchBar />
           <SocialButton name="github" href="https://github.com/minhn4" />
           <SocialButton name="linkedin" href="/" />
           <ThemeSwitcher />
@@ -147,9 +153,10 @@ const DesktopNav = () => {
             <PopoverTrigger>
               <Box
                 as="a"
+                alignContent={"center"}
                 p={2}
                 href={navItem.href ?? "#"}
-                fontSize={"sm"}
+                fontSize={"md"}
                 fontWeight={500}
                 color={linkColor}
                 _hover={{
@@ -157,7 +164,13 @@ const DesktopNav = () => {
                   color: linkHoverColor,
                 }}
               >
+                {navItem.iconRight && (
+                  <Icon mr="2" paddingBottom={"2px"} as={navItem.iconRight} />
+                )}
                 {navItem.label}
+                {navItem.iconLeft && (
+                  <Icon mr="2" paddingBottom={"2px"} as={navItem.iconLeft} />
+                )}
               </Box>
             </PopoverTrigger>
 

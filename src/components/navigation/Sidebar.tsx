@@ -6,9 +6,6 @@ import {
   DrawerContent,
   Flex,
   Icon,
-  Image,
-  Link,
-  Text,
   useColorModeValue,
   useDisclosure,
   type BoxProps,
@@ -69,19 +66,7 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
       h="full"
       {...rest}
     >
-      <Flex h="20" alignItems="center" mx="5" justifyContent="space-between">
-        <Link href="/">
-          <Image src="img/logo.png" alt="Logo" boxSize="40px" />
-        </Link>
-        <Text
-          as="a"
-          href="/"
-          fontSize="2xl"
-          fontFamily="monospace"
-          fontWeight="bold"
-        >
-          Quickbeard
-        </Text>
+      <Flex h="0" alignItems="center" mx="5" justifyContent="space-between">
         <CloseButton display={{ base: "flex", md: "none" }} onClick={onClose} />
       </Flex>
       {LinkItems.map((link) => (
