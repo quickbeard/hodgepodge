@@ -1,4 +1,7 @@
 "use client";
+
+import "@/styles/dropzone.css";
+
 import {
   type ButtonProps,
   Button,
@@ -29,6 +32,7 @@ const DefaultDisplayText = (
     Please drag and drop your file here <br /> or click to upload a file.
   </Text>
 );
+
 const NoFilesDisplayText = (
   <>
     <Text color="red">No files chosen!</Text>
