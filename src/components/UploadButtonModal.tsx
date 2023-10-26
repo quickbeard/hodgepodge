@@ -123,16 +123,16 @@ export default function UploadButtonModal({
             <div className="dropzone">
               <form id="form-file-upload" onDragEnter={handleDrag}>
                 <input
+                  id="input-file-upload"
                   multiple
                   accept={acceptFiles}
-                  id="input-file-upload"
                   type="file"
                   onChange={handleFileChange}
                 />
                 <label
+                  id="label-file-upload"
                   className={dragActive ? "drag-active" : ""}
                   htmlFor="input-file-upload"
-                  id="label-file-upload"
                 >
                   {displayText}
                 </label>
