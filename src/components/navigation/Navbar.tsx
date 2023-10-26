@@ -46,7 +46,7 @@ const NAV_ITEMS: Array<NavItem> = [
       {
         label: "Hide Python source",
         subLabel: "Obfuscate and hide Python source code",
-        href: "#",
+        href: "/hide-source",
       },
       {
         label: "Move secrets to Vault",
