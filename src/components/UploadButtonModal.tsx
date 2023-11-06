@@ -1,7 +1,5 @@
 "use client";
 
-import "@/styles/dropzone.css";
-
 import {
   type ButtonProps,
   Button,
@@ -14,6 +12,10 @@ import {
   ModalOverlay,
   Text,
   useDisclosure,
+  FormLabel,
+  Box,
+  FormControl,
+  Input,
 } from "@chakra-ui/react";
 import { type ChangeEvent, useState } from "react";
 
@@ -120,33 +122,53 @@ export default function UploadButtonModal({
         <ModalContent>
           <ModalHeader>{modalTitle}</ModalHeader>
           <ModalBody>
-            <div className="dropzone">
-              <form id="form-file-upload" onDragEnter={handleDrag}>
-                <input
-                  id="input-file-upload"
-                  multiple
-                  accept={acceptFiles}
-                  type="file"
-                  onChange={handleFileChange}
+            <FormControl
+              height="11rem"
+              width="25rem"
+              maxWidth="100%"
+              textAlign="center"
+              position="relative"
+              onDragEnter={handleDrag}
+            >
+              <Input
+                multiple
+                display="None"
+                accept={acceptFiles}
+                type="file"
+                onChange={handleFileChange}
+              />
+              <FormLabel
+                height="100%"
+                display="flex"
+                alignItems="center"
+                justifyContent="center"
+                borderWidth="2px"
+                borderRadius="1rem"
+                borderStyle="dashed"
+                borderColor="#cbd5e1"
+                backgroundColor={dragActive ? "white" : "#f8fafc"}
+                cursor="pointer"
+                htmlFor="input-file-upload"
+              >
+                {displayText}
+              </FormLabel>
+              {dragActive && (
+                <Box
+                  position="absolute"
+                  width="100%"
+                  height="100%"
+                  borderRadius="1rem"
+                  top="0px"
+                  right="0px"
+                  bottom="0px"
+                  left="0px"
+                  onDragEnter={handleDrag}
+                  onDragLeave={handleDrag}
+                  onDragOver={handleDrag}
+                  onDrop={handleDrop}
                 />
-                <label
-                  id="label-file-upload"
-                  className={dragActive ? "drag-active" : ""}
-                  htmlFor="input-file-upload"
-                >
-                  {displayText}
-                </label>
-                {dragActive && (
-                  <div
-                    id="drag-file-element"
-                    onDragEnter={handleDrag}
-                    onDragLeave={handleDrag}
-                    onDragOver={handleDrag}
-                    onDrop={handleDrop}
-                  />
-                )}
-              </form>
-            </div>
+              )}
+            </FormControl>
           </ModalBody>
           <ModalFooter>
             <Button mr={3} variant="gray" onClick={onModalClose}>
