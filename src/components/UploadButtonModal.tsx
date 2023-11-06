@@ -1,8 +1,15 @@
 "use client";
+
+import "@/styles/FileUpload.css";
+
 import {
   type ButtonProps,
+  Box,
   Button,
+  FormControl,
+  FormLabel,
   HStack,
+  Input,
   Modal,
   ModalBody,
   ModalContent,
@@ -10,6 +17,7 @@ import {
   ModalHeader,
   ModalOverlay,
   Text,
+  useColorModeValue,
   useDisclosure,
 } from "@chakra-ui/react";
 import { type ChangeEvent, useState } from "react";
@@ -26,9 +34,10 @@ type UploadButtonModalProps = {
 
 const DefaultDisplayText = (
   <Text>
-    Please drag and drop your file here <br /> or click to upload a file.
+    Please drag and drop your file here <br /> or click to upload a file
   </Text>
 );
+
 const NoFilesDisplayText = (
   <>
     <Text color="red">No files chosen!</Text>
@@ -116,33 +125,56 @@ export default function UploadButtonModal({
         <ModalContent>
           <ModalHeader>{modalTitle}</ModalHeader>
           <ModalBody>
-            <div className="dropzone">
-              <form id="form-file-upload" onDragEnter={handleDrag}>
-                <input
-                  multiple
-                  accept={acceptFiles}
-                  id="input-file-upload"
-                  type="file"
-                  onChange={handleFileChange}
-                />
-                <label
-                  className={dragActive ? "drag-active" : ""}
-                  htmlFor="input-file-upload"
-                  id="label-file-upload"
-                >
-                  {displayText}
-                </label>
-                {dragActive && (
-                  <div
-                    id="drag-file-element"
-                    onDragEnter={handleDrag}
-                    onDragLeave={handleDrag}
-                    onDragOver={handleDrag}
-                    onDrop={handleDrop}
-                  />
+            <FormControl
+              height="11rem"
+              width="25rem"
+              maxWidth="100%"
+              textAlign="center"
+              position="relative"
+              onDragEnter={handleDrag}
+            >
+              <Input
+                id="input-file-upload"
+                multiple
+                accept={acceptFiles}
+                type="file"
+                onChange={handleFileChange}
+              />
+              <FormLabel
+                height="100%"
+                display="flex"
+                alignItems="center"
+                justifyContent="center"
+                borderWidth="2px"
+                borderRadius="1rem"
+                borderStyle="dashed"
+                borderColor={useColorModeValue("gray.300", "gray.500")}
+                backgroundColor={useColorModeValue(
+                  dragActive ? "white" : "gray.50",
+                  dragActive ? "gray.800" : "gray.600",
                 )}
-              </form>
-            </div>
+                cursor="pointer"
+                htmlFor="input-file-upload"
+              >
+                {displayText}
+              </FormLabel>
+              {dragActive && (
+                <Box
+                  position="absolute"
+                  width="100%"
+                  height="100%"
+                  borderRadius="1rem"
+                  top="0px"
+                  right="0px"
+                  bottom="0px"
+                  left="0px"
+                  onDragEnter={handleDrag}
+                  onDragLeave={handleDrag}
+                  onDragOver={handleDrag}
+                  onDrop={handleDrop}
+                />
+              )}
+            </FormControl>
           </ModalBody>
           <ModalFooter>
             <Button mr={3} variant="gray" onClick={onModalClose}>
