@@ -1,9 +1,15 @@
 "use client";
 
+import "@/styles/FileUpload.css";
+
 import {
   type ButtonProps,
+  Box,
   Button,
+  FormControl,
+  FormLabel,
   HStack,
+  Input,
   Modal,
   ModalBody,
   ModalContent,
@@ -11,11 +17,8 @@ import {
   ModalHeader,
   ModalOverlay,
   Text,
+  useColorModeValue,
   useDisclosure,
-  FormLabel,
-  Box,
-  FormControl,
-  Input,
 } from "@chakra-ui/react";
 import { type ChangeEvent, useState } from "react";
 
@@ -31,7 +34,7 @@ type UploadButtonModalProps = {
 
 const DefaultDisplayText = (
   <Text>
-    Please drag and drop your file here <br /> or click to upload a file.
+    Please drag and drop your file here <br /> or click to upload a file
   </Text>
 );
 
@@ -131,8 +134,8 @@ export default function UploadButtonModal({
               onDragEnter={handleDrag}
             >
               <Input
+                id="input-file-upload"
                 multiple
-                display="None"
                 accept={acceptFiles}
                 type="file"
                 onChange={handleFileChange}
@@ -145,8 +148,11 @@ export default function UploadButtonModal({
                 borderWidth="2px"
                 borderRadius="1rem"
                 borderStyle="dashed"
-                borderColor="#cbd5e1"
-                backgroundColor={dragActive ? "white" : "#f8fafc"}
+                borderColor={useColorModeValue("gray.300", "gray.500")}
+                backgroundColor={useColorModeValue(
+                  dragActive ? "white" : "gray.50",
+                  dragActive ? "gray.800" : "gray.600",
+                )}
                 cursor="pointer"
                 htmlFor="input-file-upload"
               >
