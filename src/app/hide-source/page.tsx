@@ -1,6 +1,6 @@
 import { Box } from "@chakra-ui/react";
 
-import UploadButtonModal from "@/components/UploadButtonModal";
+import UploadButtonModal from "@/components/buttons/UploadButtonModal";
 
 export default function HideSource() {
   return (
