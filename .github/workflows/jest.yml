@@ -19,14 +19,18 @@ jobs:
       AUTH0_CLIENT_SECRET: ${{ secrets.AUTH0_CLIENT_SECRET }}
       NEXT_PUBLIC_PAYPAL_CLIENT_ID: ${{ secrets.NEXT_PUBLIC_PAYPAL_CLIENT_ID }}
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8
       - name: Install Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 20
+          node-version: "20"
+          cache: "pnpm"
       - name: Install dependencies
-        run: yarn
+        run: pnpm i --frozen-lockfile --strict-peer-dependencies
       - name: Run lint
-        run: yarn lint --quiet
+        run: pnpm lint --quiet
       - name: Run unit tests
-        run: yarn test
+        run: pnpm test
