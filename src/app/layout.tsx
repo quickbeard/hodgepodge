@@ -1,7 +1,7 @@
 import "@/styles/globals.css";
 
 import { Inter } from "next/font/google";
-import { headers } from "next/headers";
+import { cookies } from "next/headers";
 
 import { TRPCReactProvider } from "@/trpc/react";
 import { Providers } from "./providers";
@@ -26,7 +26,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`font-sans ${inter.variable}`}>
-        <TRPCReactProvider headers={headers()}>
+        <TRPCReactProvider cookies={cookies().toString()}>
           <Providers>
             <SidebarWithHeader>{children}</SidebarWithHeader>
           </Providers>
