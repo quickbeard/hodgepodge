@@ -32,7 +32,7 @@ jobs:
       - name: Install dependencies
         run: pnpm i --frozen-lockfile --strict-peer-dependencies
       - name: Install Playwright Browsers
-        run: pnpm playwright install --with-deps chromium
+        run: pnpm playwright install --with-deps
       - name: Run Playwright tests
         run: pnpm playwright test
       - uses: actions/upload-artifact@v3
