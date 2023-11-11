@@ -1,6 +1,6 @@
 # Web App
 
-Just an web app with TypeScript and Next.js
+Just a hodgepodge web app with TypeScript and Next.js
 
 ## Docker
 
