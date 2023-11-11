@@ -13,7 +13,7 @@ RUN apk add --no-cache libc6-compat openssl1.1-compat
 # Install Prisma Client - remove if not using Prisma
 COPY prisma ./
 # Install dependencies based on the preferred package manager
-COPY package.json pnpm-lock.yaml\* yarn.lock* package-lock.json* ./
+COPY package.json pnpm-lock.yaml* yarn.lock* package-lock.json* ./
 RUN \
  if [ -f pnpm-lock.yaml ]; then npm install -g pnpm && pnpm i --frozen-lockfile; \
  elif [ -f yarn.lock ]; then yarn --frozen-lockfile; \
