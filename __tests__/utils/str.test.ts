@@ -1,7 +1,7 @@
 import { toTitleCase } from "../../src/utils/str";
 
-describe("Title case unit test", () => {
-  test("Convert a string to title case", () => {
+describe("to title case", () => {
+  test("convert a string to title case", () => {
     expect(toTitleCase("A")).toBe("A");
     expect(toTitleCase("a")).toBe("A");
     expect(toTitleCase("BRIAN")).toBe("Brian");
