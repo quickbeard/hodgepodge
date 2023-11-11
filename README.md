@@ -10,6 +10,6 @@ Just an web app with TypeScript and Next.js
 
 `docker run -p 3000:3000 -e DATABASE_URL=${DATABASE_URL} NEXTAUTH_SECRET=${NEXTAUTH_SECRET} NEXTAUTH_URL=http://localhost:3000 AUTH0_ISSUER_BASE_URL=${AUTH0_ISSUER_BASE_URL} AUTH0_CLIENT_ID=${AUTH0_CLIENT_ID} AUTH0_CLIENT_SECRET=${AUTH0_CLIENT_SECRET} webapp:$(git rev-parse --short=6 HEAD)`
 
-## docker-compose
+## Docker Compose
 
 `docker compose up -d`
