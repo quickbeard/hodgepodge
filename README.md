@@ -8,7 +8,7 @@ Just a hodgepodge web app with TypeScript and Next.js
 
 `docker build -t next-app:$(git rev-parse --short=6 HEAD) --build-arg NEXT_PUBLIC_PAYPAL_CLIENT_ID=${NEXT_PUBLIC_PAYPAL_CLIENT_ID} .`
 
-`docker run --name next-app -p 3000:3000 -e DATABASE_URL=${DATABASE_URL} NEXTAUTH_SECRET=${NEXTAUTH_SECRET} NEXTAUTH_URL=http://localhost:3000 AUTH0_ISSUER_BASE_URL=${AUTH0_ISSUER_BASE_URL} AUTH0_CLIENT_ID=${AUTH0_CLIENT_ID} AUTH0_CLIENT_SECRET=${AUTH0_CLIENT_SECRET} next-app:$(git rev-parse --short=6 HEAD)`
+`docker run --name next-app -p 3000:3000 -e DATABASE_URL=${DATABASE_URL} -e NEXTAUTH_SECRET=${NEXTAUTH_SECRET} -e NEXTAUTH_URL=http://localhost:3000 -e AUTH0_ISSUER_BASE_URL=${AUTH0_ISSUER_BASE_URL} -e AUTH0_CLIENT_ID=${AUTH0_CLIENT_ID} -e AUTH0_CLIENT_SECRET=${AUTH0_CLIENT_SECRET} next-app:$(git rev-parse --short=6 HEAD)`
 
 ## Docker Compose
 
