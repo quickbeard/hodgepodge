@@ -40,11 +40,10 @@ ENV NEXT_TELEMETRY_DISABLED 1
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
-RUN pnpm prisma generate
 RUN \
- if [ -f pnpm-lock.yaml ]; then npm install -g pnpm && SKIP_ENV_VALIDATION=1 pnpm build; \
- elif [ -f yarn.lock ]; then SKIP_ENV_VALIDATION=1 yarn build; \
- elif [ -f package-lock.json ]; then SKIP_ENV_VALIDATION=1 npm run build; \
+ if [ -f pnpm-lock.yaml ]; then npm install -g pnpm && pnpm prisma generate && SKIP_ENV_VALIDATION=1 pnpm build; \
+ elif [ -f yarn.lock ]; then yarn prisma generate && SKIP_ENV_VALIDATION=1 yarn build; \
+ elif [ -f package-lock.json ]; then npm prisma generate && SKIP_ENV_VALIDATION=1 npm run build; \
  else echo "Lockfile not found." && exit 1; \
  fi
 
