@@ -14,6 +14,7 @@ RUN apk add --no-cache libc6-compat openssl1.1-compat
 COPY prisma ./
 # Install dependencies based on the preferred package manager
 COPY package.json pnpm-lock.yaml* yarn.lock* package-lock.json* ./
+
 RUN \
  if [ -f pnpm-lock.yaml ]; then npm install -g pnpm && pnpm i --frozen-lockfile; \
  elif [ -f yarn.lock ]; then yarn --frozen-lockfile; \
@@ -40,9 +41,9 @@ COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
 RUN \
- if [ -f pnpm-lock.yaml ]; then npm install -g pnpm && SKIP_ENV_VALIDATION=1 pnpm build; \
- elif [ -f yarn.lock ]; then SKIP_ENV_VALIDATION=1 yarn build; \
- elif [ -f package-lock.json ]; then SKIP_ENV_VALIDATION=1 npm run build; \
+ if [ -f pnpm-lock.yaml ]; then npm install -g pnpm && pnpm prisma generate && SKIP_ENV_VALIDATION=1 pnpm build; \
+ elif [ -f yarn.lock ]; then yarn prisma generate && SKIP_ENV_VALIDATION=1 yarn build; \
+ elif [ -f package-lock.json ]; then npm prisma generate && SKIP_ENV_VALIDATION=1 npm run build; \
  else echo "Lockfile not found." && exit 1; \
  fi
 
