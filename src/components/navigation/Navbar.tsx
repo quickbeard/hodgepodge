@@ -25,7 +25,7 @@ import { useSession } from "next-auth/react";
 
 import SearchBar from "./SearchBar";
 import SocialButton from "../buttons/SocialButton";
-import ThemeSwitcher from "../buttons/ThemeSwitcher";
+import DarkModeToggle from "../buttons/DarkModeToggle";
 import LoginButton from "../buttons/LoginButton";
 import UserProfile from "../buttons/UserProfile";
 
@@ -125,7 +125,7 @@ export default function Navbar() {
         >
           <SocialButton name="github" href="https://github.com/minhn4" />
           <SocialButton name="linkedin" href="/" />
-          <ThemeSwitcher />
+          <DarkModeToggle />
           {status !== "authenticated"} ? <LoginButton /> : <UserProfile />
         </Stack>
       </Flex>
