@@ -14,6 +14,7 @@ RUN apk add --no-cache libc6-compat openssl1.1-compat
 COPY prisma ./
 # Install dependencies based on the preferred package manager
 COPY package.json pnpm-lock.yaml* yarn.lock* package-lock.json* ./
+
 RUN \
  if [ -f pnpm-lock.yaml ]; then npm install -g pnpm && pnpm i --frozen-lockfile; \
  elif [ -f yarn.lock ]; then yarn --frozen-lockfile; \
@@ -39,6 +40,7 @@ ENV NEXT_TELEMETRY_DISABLED 1
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
+RUN pnpm prisma generate
 RUN \
  if [ -f pnpm-lock.yaml ]; then npm install -g pnpm && SKIP_ENV_VALIDATION=1 pnpm build; \
  elif [ -f yarn.lock ]; then SKIP_ENV_VALIDATION=1 yarn build; \
