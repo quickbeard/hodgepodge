@@ -1,9 +1,7 @@
-import { Box } from "@chakra-ui/react";
+import { auth } from "@/server/auth";
 
-export default function Home() {
-  return (
-    <Box ml={{ base: 0, md: 60 }} p="4">
-      Hello
-    </Box>
-  );
+export default async function Home() {
+  const session = await auth();
+
+  return <div>Hello</div>;
 }
