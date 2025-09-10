@@ -1,50 +1,12 @@
 # Introduction
 
-CoDev Admin Page
+Hodgepodge
 
-Run `pnpm db:push` to push schema to database before `pnpm dev`.
+* `docker run --name hodgepodge-db -e POSTGRES_PASSWORD=postgres -p 5432:5432 -d postgres:17.6`
 
-## Node.js version manager
+* `pnpm db:push`
 
-* Disable Git SSL: `git config --global http.sslVerify "false"`
-
-* Install nvm: `curl -k -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash`
-
-* Install and use a Node.js version: `nvm install 22`
-
-* Switch version: `nvm use 22`
-
-* Set default version: `nvm alias default 22`
-
-* Check current Node.js version with `node -v`
-
-* Check downloaded version list including the default Node.js version: `nvm ls`
-
-* Check remote Node.js versions: `nvm ls-remote`
-
-* See https://github.com/nvm-sh/nvm for the latest nvm version.
-
-## Package manager
-
-* Install or update `pnpm`: `npm i -g pnpm`
-
-* Install all dependencies in `package.json`: `pnpm i`
-
-* Add new dependencies or dev dependencies: `pnpm add` or `pnpm add -D`
-
-* Remove dependencies or dev dependencies: `pnpm rm` or `pnpm rm -D`
-
-* See https://pnpm.io for more details.
-
-## Playwright E2E testing
-
-* Run `npx playwright install --with-deps firefox` to install Firefox with system deps
-
-* To run Playwright in VS Code (Testing section in the sidebar), you need to install VS Code Playwright extension
-
-* Alternatively, you can use command `pnpm test:e2e` in terminal instead (e.g., for CI)
-
-* To pick locator or record, run `pnpm dev` first
+* `pnpm dev`
 
 ## Docker
 
