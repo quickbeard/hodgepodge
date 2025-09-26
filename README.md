@@ -1,54 +1,29 @@
-# Introduction
+# Create T3 App
 
-CoDev Admin Page
+This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
 
-Run `pnpm db:push` to push schema to database before `pnpm dev`.
+## What's next? How do I make an app with this?
 
-## Node.js version manager
+We try to keep this project as simple as possible, so you can start with just the scaffolding we set up for you, and add additional things later when they become necessary.
 
-* Disable Git SSL: `git config --global http.sslVerify "false"`
+If you are not familiar with the different technologies used in this project, please refer to the respective docs. If you still are in the wind, please join our [Discord](https://t3.gg/discord) and ask for help.
 
-* Install nvm: `curl -k -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash`
+- [Next.js](https://nextjs.org)
+- [NextAuth.js](https://next-auth.js.org)
+- [Prisma](https://prisma.io)
+- [Drizzle](https://orm.drizzle.team)
+- [Tailwind CSS](https://tailwindcss.com)
+- [tRPC](https://trpc.io)
 
-* Install and use a Node.js version: `nvm install 22`
+## Learn More
 
-* Switch version: `nvm use 22`
+To learn more about the [T3 Stack](https://create.t3.gg/), take a look at the following resources:
 
-* Set default version: `nvm alias default 22`
+- [Documentation](https://create.t3.gg/)
+- [Learn the T3 Stack](https://create.t3.gg/en/faq#what-learning-resources-are-currently-available) — Check out these awesome tutorials
 
-* Check current Node.js version with `node -v`
+You can check out the [create-t3-app GitHub repository](https://github.com/t3-oss/create-t3-app) — your feedback and contributions are welcome!
 
-* Check downloaded version list including the default Node.js version: `nvm ls`
+## How do I deploy this?
 
-* Check remote Node.js versions: `nvm ls-remote`
-
-* See https://github.com/nvm-sh/nvm for the latest nvm version.
-
-## Package manager
-
-* Install or update `pnpm`: `npm i -g pnpm`
-
-* Install all dependencies in `package.json`: `pnpm i`
-
-* Add new dependencies or dev dependencies: `pnpm add` or `pnpm add -D`
-
-* Remove dependencies or dev dependencies: `pnpm rm` or `pnpm rm -D`
-
-* See https://pnpm.io for more details.
-
-## Playwright E2E testing
-
-* Run `npx playwright install --with-deps firefox` to install Firefox with system deps
-
-* To run Playwright in VS Code (Testing section in the sidebar), you need to install VS Code Playwright extension
-
-* Alternatively, you can use command `pnpm test:e2e` in terminal instead (e.g., for CI)
-
-* To pick locator or record, run `pnpm dev` first
-
-## Docker
-
-* `docker build -t codev-admin:$(git rev-parse --short=8 HEAD) .`
-
-* `docker run --net host --name codev-admin --env-file ./.env codev-admin:$(git rev-parse --short=8 HEAD)`
-
+Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel), [Netlify](https://create.t3.gg/en/deployment/netlify) and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
